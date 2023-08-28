@@ -1,4 +1,4 @@
-package com.example.contactsapp
+package com.example.contactsapp.view
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -20,14 +20,15 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
         tvSplashText = binding.tvSplashText
 
+
         tvSplashText.text="THIS IS A SPLASH"
 
 
         val handler = Handler(Looper.getMainLooper())
-//        handler.postDelayed({
-//            startActivity(Intent(this, MainActivity::class.java))
-//            finish()
-//        },90000)
+        handler.postDelayed({
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        },3000)
 
 
     }

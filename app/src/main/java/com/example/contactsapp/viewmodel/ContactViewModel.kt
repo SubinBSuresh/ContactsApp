@@ -1,0 +1,6 @@
+package com.example.contactsapp.viewmodel
+
+import androidx.lifecycle.ViewModel
+
+class ContactViewModel:ViewModel() {
+}
