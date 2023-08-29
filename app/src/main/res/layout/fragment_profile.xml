@@ -9,5 +9,28 @@
     >
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_profileList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="376dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:itemCount="3"
+        tools:layoutManager="GridLayoutManager"
+        tools:listitem="@layout/recycler_view_item_2"
+        tools:spanCount="5">
 
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <ImageButton
+        android:id="@+id/ib_addNewProfile"
+        android:layout_width="125dp"
+        android:layout_height="103dp"
+        android:src="@android:drawable/ic_menu_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_profileList" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,11 @@ import com.example.contactsapp.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        var currentProfileId = 1
+    }
+
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var viewpager: ViewPager
@@ -39,3 +44,4 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
+

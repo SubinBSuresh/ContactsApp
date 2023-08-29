@@ -21,7 +21,7 @@ data class Contact(
     val phoneNumber: String,
     val email: String,
     val imageUrl: String,
-    val isFavorite: Boolean = false
+    var isFavorite: Boolean = false
 )
 abstract class AppDatabase {
     abstract fun profileDao(): ProfileDao

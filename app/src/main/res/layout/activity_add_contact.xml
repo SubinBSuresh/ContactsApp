@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.AddContactActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Add Contact" />
+
+    <ImageView
+        android:id="@+id/iv_addNewContactImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="101dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_addNewContactImage"
+        android:text="Click to add image" />
+
+    <LinearLayout
+        android:id="@+id/ll_addContactDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="48dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView4">
+
+        <EditText
+            android:id="@+id/et_AddNewContactName"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:layout_marginBottom="15sp"
+            android:background="@drawable/box_border"
+            android:gravity="center"
+            android:hint="Enter Name" />
+
+        <EditText
+            android:id="@+id/et_addNewContactNumber"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:layout_marginBottom="15sp"
+            android:background="@drawable/box_border"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Enter phone number"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/et_addNewContactEmail"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:layout_marginBottom="15sp"
+            android:background="@drawable/box_border"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Enter email address"
+            android:inputType="textEmailAddress" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_addNewContact"
+        android:layout_width="168dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/box_border"
+        android:text="Save"
+        app:cornerRadius="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_addContactDetails" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
