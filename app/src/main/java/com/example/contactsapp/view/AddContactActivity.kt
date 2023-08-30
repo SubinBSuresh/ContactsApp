@@ -50,6 +50,8 @@ class AddContactActivity : AppCompatActivity() {
                  Toast.makeText(this, "field empty", Toast.LENGTH_SHORT).show()
              } else{
                  val contact: Contact = Contact(profileId = 1,name=name, phoneNumber = number, email = email, imageUrl = "sfs")
+                 //TODO: Add DB operations
+                 finish()
              }
         }
     }

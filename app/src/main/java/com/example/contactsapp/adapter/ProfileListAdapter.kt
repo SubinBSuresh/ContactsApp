@@ -8,7 +8,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.contactsapp.database.Contact
 import com.example.contactsapp.database.Profile
 import com.example.contactsapp.databinding.ProfileListItemBinding
 

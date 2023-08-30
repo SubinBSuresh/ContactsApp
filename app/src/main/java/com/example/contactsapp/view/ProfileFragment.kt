@@ -1,15 +1,14 @@
 package com.example.contactsapp.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.contactsapp.R
 import com.example.contactsapp.adapter.ProfileListAdapter
 import com.example.contactsapp.database.Profile
 import com.example.contactsapp.databinding.FragmentProfileBinding
@@ -22,7 +21,7 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
 
         ibAddNewProfile = binding.ibAddNewProfile
@@ -55,7 +54,8 @@ class ProfileFragment : Fragment() {
 
 
         ibAddNewProfile.setOnClickListener {
-            Toast.makeText(requireContext(),"button clicked", Toast.LENGTH_SHORT).show()
+            val intent = Intent(requireContext(), AddProfileActivity::class.java)
+            startActivity(intent)
         }
 
         return  binding.root

@@ -1,21 +1,22 @@
 package com.example.contactsapp.adapter
 
 import android.content.Context
-import android.media.Image
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemLongClickListener
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.contactsapp.R
 import com.example.contactsapp.database.Contact
 import com.example.contactsapp.databinding.ContactListItemBinding
+import com.example.contactsapp.view.ViewContactActivity
 
-class ContactListAdapter(private var contactList: ArrayList<Contact>) :RecyclerView.Adapter<ContactListAdapter.MyViewHolder>(){
+class ContactListAdapter(private var contactList: ArrayList<Contact>, private var context: Context) :RecyclerView.Adapter<ContactListAdapter.MyViewHolder>(){
     lateinit var binding: ContactListItemBinding
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         binding = ContactListItemBinding.inflate(LayoutInflater.from(parent.context))
@@ -53,6 +54,8 @@ class ContactListAdapter(private var contactList: ArrayList<Contact>) :RecyclerV
             }
 
             holder.itemView.setOnClickListener {
+                val intent = Intent(context, ViewContactActivity::class.java)
+                context.startActivity(intent)
             }
 
             holder.isFavorite.setOnClickListener {
