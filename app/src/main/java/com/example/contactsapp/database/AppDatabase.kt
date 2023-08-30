@@ -1,29 +1,24 @@
 package com.example.contactsapp.database
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import android.content.Context
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
 
 
-@Entity(tableName = "profiles")
-data class Profile(
-    @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
-    val name: String?,
-    val avatarUrl: String // You can use a URL or store the image locally.
+@Database(
+    entities = [Profile::class,Contact::class],
+    version = 1,
+    exportSchema = false
 )
+abstract class AppDatabase : RoomDatabase() {
 
-@Entity(tableName = "contacts")
-data class Contact(
-    @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
-    val profileId: Long?,
-    val name: String?,
-    val phoneNumber: String?,
-    val email: String,
-    val imageUrl: String,
-    var isFavorite: Boolean? = false
-)
-abstract class AppDatabase {
+    private val database_name = "contact_db"
     abstract fun profileDao(): ProfileDao
     abstract fun contactDao(): ContactDao
+
+
+    private fun buildDatabase(context:Context){
+        Room.databaseBuilder(context.applicationContext,AppDatabase::class.java,database_name).build()
+    }
 }

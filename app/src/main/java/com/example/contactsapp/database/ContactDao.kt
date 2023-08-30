@@ -21,11 +21,14 @@ interface ContactDao {
     suspend fun deleteContact(contact: Contact)
 
     @Query("SELECT * FROM contacts ORDER BY name ASC ")
-    suspend fun fetchContact(): LiveData<ArrayList<Contact>>
+    suspend fun fetchContacts(): LiveData<ArrayList<Contact>>
 
     @Query("DELETE FROM contacts WHERE id=:id")
     suspend fun deleteContactById(id:Long)
 
     @Query("SELECT * FROM contacts WHERE name LIKE :name OR phoneNumber LIKE :number")
     suspend fun fetchContactsBySearch(name:String, number:String): LiveData<ArrayList<Contact>>
+
+    @Query("UPDATE contacts SET isFavorite= CASE WHEN :isFavorite THEN 1 ELSE 0 END WHERE id=:id ")
+    suspend fun changeFavoriteStatus(id: Long,isFavorite: Boolean)
 }
