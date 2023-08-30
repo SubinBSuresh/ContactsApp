@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class Profile(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
-    val name: String,
+    val name: String?,
     val avatarUrl: String // You can use a URL or store the image locally.
 )
 
@@ -16,12 +16,12 @@ data class Profile(
 data class Contact(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
-    val profileId: Long,
-    val name: String,
-    val phoneNumber: String,
+    val profileId: Long?,
+    val name: String?,
+    val phoneNumber: String?,
     val email: String,
     val imageUrl: String,
-    var isFavorite: Boolean = false
+    var isFavorite: Boolean? = false
 )
 abstract class AppDatabase {
     abstract fun profileDao(): ProfileDao
