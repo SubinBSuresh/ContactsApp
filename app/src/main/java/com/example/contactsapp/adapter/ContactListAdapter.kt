@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.contactsapp.R
 import com.example.contactsapp.database.Contact
 import com.example.contactsapp.databinding.ContactListItemBinding
-import com.example.contactsapp.view.ViewContactActivity
+import com.example.contactsapp.ui.ViewContactActivity
 
 class ContactListAdapter(private var contactList: ArrayList<Contact>, private var context: Context) :RecyclerView.Adapter<ContactListAdapter.MyViewHolder>(){
     lateinit var binding: ContactListItemBinding
@@ -43,7 +43,7 @@ class ContactListAdapter(private var contactList: ArrayList<Contact>, private va
             contactName.text = contactList[position].name
             contactNumber.text = contactList[position].phoneNumber
 
-            if (contactList[position].isFavorite){
+            if (contactList[position].isFavorite == true){
                 isFavorite.setImageResource(R.drawable.baseline_favorite_24)
             } else{
                 isFavorite.setImageResource(R.drawable.baseline_unfavorite_border_24)
@@ -60,7 +60,7 @@ class ContactListAdapter(private var contactList: ArrayList<Contact>, private va
 
             holder.isFavorite.setOnClickListener {
 
-                if (contactList[position].isFavorite){
+                if (contactList[position].isFavorite == true){
                     contactList[position].isFavorite = false
                     Toast.makeText(holder.itemView.context, "unfavorite",Toast.LENGTH_SHORT).show()
 

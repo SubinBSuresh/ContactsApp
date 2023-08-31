@@ -31,7 +31,7 @@ class FavoriteListAdapter(private var contactList:ArrayList<Contact>):RecyclerVi
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         with(holder){
             contactName.text = contactList[position].name
-            if (contactList[position].isFavorite){
+            if (contactList[position].isFavorite == true){
                 favorite.setImageResource(R.drawable.baseline_favorite_24)
 
             } else{
@@ -43,7 +43,7 @@ class FavoriteListAdapter(private var contactList:ArrayList<Contact>):RecyclerVi
 
         holder.favorite.setOnClickListener {
 
-            if (contactList[position].isFavorite){
+            if (contactList[position].isFavorite == true){
                 contactList[position].isFavorite = false
                 Toast.makeText(holder.itemView.context, "unfavorite", Toast.LENGTH_SHORT).show()
 

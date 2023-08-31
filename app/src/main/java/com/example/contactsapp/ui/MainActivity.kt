@@ -1,11 +1,8 @@
-package com.example.contactsapp.view
+package com.example.contactsapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentManager
-import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-import androidx.viewpager2.widget.ViewPager2
 import com.example.contactsapp.adapter.FragmentAdapter
 import com.example.contactsapp.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayout

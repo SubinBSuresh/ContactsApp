@@ -10,13 +10,13 @@ data class Profile(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val name: String?,
-    val avatarUrl: String // You can use a URL or store the image locally.
+    val avatarUrl: String
 )
 
 @Entity(tableName = "contacts")
 data class Contact(
     @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
+    val id: Long = 0 ,
     val profileId: Long?,
     val name: String?,
     val phoneNumber: String?,

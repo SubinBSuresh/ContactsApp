@@ -1,11 +1,9 @@
-package com.example.contactsapp.view
+package com.example.contactsapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract.CommonDataKinds.Email
 import android.widget.Button
 import android.widget.TextView
-import com.example.contactsapp.R
 import com.example.contactsapp.database.Contact
 import com.example.contactsapp.databinding.ActivityViewContactBinding
 

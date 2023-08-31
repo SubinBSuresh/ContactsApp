@@ -5,7 +5,7 @@
     android:id="@+id/cl_contactsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ContactsFragment">
+    tools:context=".ui.ContactsFragment">
 
     <EditText
         android:id="@+id/et_searchContacts"

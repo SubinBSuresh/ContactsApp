@@ -1,4 +1,4 @@
-package com.example.contactsapp.view
+package com.example.contactsapp.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,11 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.contactsapp.R
-import com.example.contactsapp.adapter.ContactListAdapter
 import com.example.contactsapp.adapter.FavoriteListAdapter
 import com.example.contactsapp.database.Contact
-import com.example.contactsapp.databinding.FavoriteListItemBinding
 import com.example.contactsapp.databinding.FragmentFavoritesBinding
 
 class FavoritesFragment : Fragment() {

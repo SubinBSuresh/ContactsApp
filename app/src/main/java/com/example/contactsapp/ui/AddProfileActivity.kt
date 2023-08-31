@@ -1,4 +1,4 @@
-package com.example.contactsapp.view
+package com.example.contactsapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

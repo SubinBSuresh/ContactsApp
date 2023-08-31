@@ -1,4 +1,4 @@
-package com.example.contactsapp.view
+package com.example.contactsapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,12 +6,14 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
-import com.example.contactsapp.R
+import com.example.contactsapp.database.AppDatabase
 import com.example.contactsapp.database.Contact
+import com.example.contactsapp.database.ContactDao
+import com.example.contactsapp.database.ContactRepository
 import com.example.contactsapp.databinding.ActivityAddContactBinding
+import com.example.contactsapp.viewmodel.ContactViewModel
 
 class AddContactActivity : AppCompatActivity() {
 
@@ -22,6 +24,16 @@ class AddContactActivity : AppCompatActivity() {
     private lateinit var etAddContactEmail: EditText
     private lateinit var ivAddContactImage: ImageView
     private lateinit var btnAddNewContact: Button
+
+
+    private lateinit var contactDatabase: AppDatabase
+    private lateinit var contactViewModel: ContactViewModel
+    private lateinit var contactDao: ContactDao
+    private lateinit var contactRepository:ContactRepository
+
+    private lateinit var appDatabase: AppDatabase
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddContactBinding.inflate(layoutInflater)
@@ -49,8 +61,12 @@ class AddContactActivity : AppCompatActivity() {
              if (name.isEmpty() || number.isEmpty() || email.isEmpty()){
                  Toast.makeText(this, "field empty", Toast.LENGTH_SHORT).show()
              } else{
-                 val contact: Contact = Contact(profileId = 1,name=name, phoneNumber = number, email = email, imageUrl = "sfs")
+                 val contact = Contact(profileId = 1,name=name, phoneNumber = number, email = email, imageUrl = "sfs")
                  //TODO: Add DB operations
+
+
+
+
                  finish()
              }
         }

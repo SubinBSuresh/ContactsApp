@@ -1,4 +1,4 @@
-package com.example.contactsapp.view
+package com.example.contactsapp.ui
 
 import android.content.Intent
 import android.os.Bundle

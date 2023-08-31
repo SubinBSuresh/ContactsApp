@@ -23,8 +23,8 @@ interface ContactDao {
     @Query("SELECT * FROM contacts ORDER BY name ASC ")
     suspend fun fetchContacts(): LiveData<ArrayList<Contact>>
 
-    @Query("DELETE FROM contacts WHERE id=:id")
-    suspend fun deleteContactById(id:Long)
+    @Query("DELETE FROM contacts WHERE id = :contactId")
+    suspend fun deleteContactById(contactId:Long)
 
     @Query("SELECT * FROM contacts WHERE name LIKE :name OR phoneNumber LIKE :number")
     suspend fun fetchContactsBySearch(name:String, number:String): LiveData<ArrayList<Contact>>
