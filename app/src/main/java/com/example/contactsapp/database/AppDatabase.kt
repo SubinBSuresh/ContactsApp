@@ -13,12 +13,26 @@ import androidx.room.RoomDatabase
 )
 abstract class AppDatabase : RoomDatabase() {
 
-    private val database_name = "contact_db"
     abstract fun profileDao(): ProfileDao
     abstract fun contactDao(): ContactDao
 
+    companion object{
+        private const val databaseName = "contact_db"
 
-    private fun buildDatabase(context:Context){
-        Room.databaseBuilder(context.applicationContext,AppDatabase::class.java,database_name).build()
+        @Volatile
+        private var INSTANCE:AppDatabase? = null
+
+        fun getDatabase(context: Context):AppDatabase{
+            return INSTANCE?: synchronized(this){
+                val instance = Room.databaseBuilder(context.applicationContext,AppDatabase::class.java,databaseName).build()
+                INSTANCE = instance
+                instance
+            }
+        }
     }
+
+
+//    private fun buildDatabase(context:Context){
+//        Room.databaseBuilder(context.applicationContext,AppDatabase::class.java,database_name).build()
+//    }
 }
