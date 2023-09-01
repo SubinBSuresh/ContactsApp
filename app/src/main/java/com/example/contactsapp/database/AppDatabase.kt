@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.contactsapp.database.dao.ContactDao
+import com.example.contactsapp.database.dao.ProfileDao
 
 
 @Database(
@@ -13,8 +15,8 @@ import androidx.room.RoomDatabase
 )
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun profileDao(): ProfileDao
-    abstract fun contactDao(): ContactDao
+    abstract fun getProfileDao(): ProfileDao
+    abstract fun getContactDao(): ContactDao
 
     companion object{
         private const val databaseName = "contact_db"

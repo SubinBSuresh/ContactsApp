@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.contactsapp.R
 import com.example.contactsapp.database.Contact
 import com.example.contactsapp.databinding.ContactListItemBinding
-import com.example.contactsapp.ui.ViewContactActivity
+import com.example.contactsapp.ui.activity.ViewContactActivity
 
 class ContactListAdapter(private var contactList: ArrayList<Contact>, private var context: Context) :RecyclerView.Adapter<ContactListAdapter.MyViewHolder>(){
     lateinit var binding: ContactListItemBinding

@@ -1,23 +1,55 @@
 package com.example.contactsapp.viewmodel
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import com.example.contactsapp.database.AppDatabase
 import com.example.contactsapp.database.Contact
-import com.example.contactsapp.database.ContactRepository
+import com.example.contactsapp.database.dao.ContactDao
+import com.example.contactsapp.ui.activity.MainActivity
 
-class ContactViewModel(private val repository: ContactRepository):ViewModel() {
+class ContactViewModel(private val application: Application) : AndroidViewModel(application) {
 
-    suspend fun addContact(contact: Contact) = repository.insertContact(contact)
+    val contactName = MutableLiveData<String>()
+    val contactNumber = MutableLiveData<String>()
+    val contactEmail = MutableLiveData<String>()
+    private lateinit var contactDao: ContactDao
 
-    suspend fun deleteContact(contact: Contact) = repository.deleteContact(contact)
 
-    suspend fun updateContact(contact: Contact) = repository.updateContact(contact)
+    init {
 
-    suspend fun fetchContacts():LiveData<ArrayList<Contact>> = repository.fetchContacts()
+        contactDao = AppDatabase.getDatabase(application).getContactDao()
+    }
 
-    suspend fun deleteContactById(id:Long) = repository.deleteContactById(id)
+    fun addContact() {
+        val name = contactName.toString()
+        val number = contactNumber.toString()
+        val email = contactEmail.toString()
+        val profileId = MainActivity.currentProfileId
+        val contact = Contact(
+            name = name,
+            phoneNumber = number,
+            profileId = profileId,
+            email = email,
+            imageUrl = "ss"
+        )
 
-    suspend fun fetchContactsBySearch(name:String, number:String):LiveData<ArrayList<Contact>> = repository.fetchContactsBySearch(name,number)
 
-    suspend fun changeFavoriteStatus(id:Long, favoriteStatus:Boolean) = repository.changeFavoriteStatus(id, favoriteStatus)
+        contactDao.insertContact(contact)
+    }
+
+    suspend fun deleteContact(contact: Contact) = contactDao.deleteContact(contact)
+
+    suspend fun updateContact(contact: Contact) = contactDao.updateContact(contact)
+
+    suspend fun fetchContacts(): LiveData<ArrayList<Contact>> = contactDao.fetchContacts()
+
+    suspend fun deleteContactById(id: Long) = contactDao.deleteContactById(id)
+
+    suspend fun fetchContactsBySearch(name: String, number: String): LiveData<ArrayList<Contact>> =
+        contactDao.fetchContactsBySearch(name, number)
+
+    suspend fun changeFavoriteStatus(id: Long, favoriteStatus: Boolean) =
+        contactDao.changeFavoriteStatus(id, favoriteStatus)
 }

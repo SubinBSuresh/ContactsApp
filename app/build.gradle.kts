@@ -5,10 +5,11 @@ plugins {
 
 android {
     namespace = "com.example.contactsapp"
-    compileSdk = 33
+    compileSdk = 34
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
     defaultConfig {
         applicationId = "com.example.contactsapp"

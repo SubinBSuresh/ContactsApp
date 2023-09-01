@@ -1,4 +1,4 @@
-package com.example.contactsapp.ui
+package com.example.contactsapp.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

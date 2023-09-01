@@ -1,4 +1,4 @@
-package com.example.contactsapp.ui
+package com.example.contactsapp.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.contactsapp.adapter.ContactListAdapter
 import com.example.contactsapp.database.Contact
 import com.example.contactsapp.databinding.FragmentContactsBinding
+import com.example.contactsapp.ui.activity.AddContactActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ContactsFragment : Fragment() {
