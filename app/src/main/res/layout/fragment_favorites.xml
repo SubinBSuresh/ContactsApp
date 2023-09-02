@@ -5,7 +5,7 @@
     android:id="@+id/cl_favoritesFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.FavoritesFragment">
+    tools:context=".ui.fragment.FavoritesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_favoritesList"
@@ -17,6 +17,5 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:itemCount="12"
         tools:layoutManager="GridLayoutManager"
-        tools:listitem="@layout/recycler_view_item_1"
         tools:spanCount="5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

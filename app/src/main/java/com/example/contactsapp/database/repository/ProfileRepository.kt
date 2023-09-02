@@ -1,6 +1,8 @@
-package com.example.contactsapp.database
+package com.example.contactsapp.database.repository
 
 import androidx.lifecycle.LiveData
+import com.example.contactsapp.database.Profile
+import com.example.contactsapp.database.dao.ProfileDao
 
 class ProfileRepository(private val profileDao: ProfileDao) {
 

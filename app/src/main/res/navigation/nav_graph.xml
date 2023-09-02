@@ -3,33 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/contactsFragment">
-
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.contactsapp.ui.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_contactsFragment"
+            app:destination="@id/contactsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/contactsFragment"
-        android:name="com.example.contactsapp.ui.ContactsFragment"
+        android:name="com.example.contactsapp.ui.fragment.ContactsFragment"
         android:label="fragment_contacts"
-        tools:layout="@layout/fragment_contacts" >
-        <action
-            android:id="@+id/action_contactsFragment_to_addContactActivity"
-            app:destination="@id/addContactActivity" />
-        <action
-            android:id="@+id/action_contactsFragment_to_viewContactActivity"
-            app:destination="@id/viewContactActivity" />
+        tools:layout="@layout/fragment_contacts" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.contactsapp.ui.fragment.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
     </fragment>
-    <activity
-        android:id="@+id/addContactActivity"
-        android:name="com.example.contactsapp.ui.AddContactActivity"
-        android:label="activity_add_contact"
-        tools:layout="@layout/activity_add_contact" />
-    <activity
-        android:id="@+id/viewContactActivity"
-        android:name="com.example.contactsapp.ui.ViewContactActivity"
-        android:label="activity_view_contact"
-        tools:layout="@layout/activity_view_contact" />
-    <activity
-        android:id="@+id/splashActivity2"
-        android:name="com.example.contactsapp.ui.SplashActivity"
-        android:label="activity_splash"
-        tools:layout="@layout/activity_splash" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.contactsapp.ui.fragment.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
 </navigation>

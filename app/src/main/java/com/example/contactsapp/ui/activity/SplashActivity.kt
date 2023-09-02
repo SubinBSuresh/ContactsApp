@@ -1,4 +1,4 @@
-package com.example.contactsapp.ui
+package com.example.contactsapp.ui.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
