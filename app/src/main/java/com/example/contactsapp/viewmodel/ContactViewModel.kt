@@ -1,16 +1,14 @@
 package com.example.contactsapp.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.contactsapp.database.AppDatabase
 import com.example.contactsapp.database.Contact
 import com.example.contactsapp.database.dao.ContactDao
+import com.example.contactsapp.database.repository.ContactRepository
 import com.example.contactsapp.ui.activity.MainActivity
 
-class ContactViewModel(private val application: Application) : ViewModel() {
+class ContactViewModel(private val repository: ContactRepository) : ViewModel() {
 
     val contactName = MutableLiveData<String>()
     val contactNumber = MutableLiveData<String>()
@@ -19,7 +17,7 @@ class ContactViewModel(private val application: Application) : ViewModel() {
 
     init {
 
-        contactDao = AppDatabase.getDatabase(application).getContactDao()
+//        contactDao = buildDatabase().getContactDao()
     }
 
     fun addContact() {
@@ -34,9 +32,11 @@ class ContactViewModel(private val application: Application) : ViewModel() {
             email = email,
             imageUrl = "ss"
         )
+        MainActivity.contactList.add(contact)
 
+        repository.insertContact(contact)
 
-        contactDao.insertContact(contact)
+//        contactDao.insertContact(contact)
     }
 
     suspend fun deleteContact(contact: Contact) = contactDao.deleteContact(contact)

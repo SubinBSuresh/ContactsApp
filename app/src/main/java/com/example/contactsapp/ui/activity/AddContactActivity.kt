@@ -10,6 +10,9 @@ import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.contactsapp.R
+import com.example.contactsapp.database.AppDatabase
+import com.example.contactsapp.database.ContactViewModelFactory
+import com.example.contactsapp.database.repository.ContactRepository
 import com.example.contactsapp.databinding.ActivityAddContactBinding
 import com.example.contactsapp.viewmodel.ContactViewModel
 
@@ -24,8 +27,11 @@ class AddContactActivity : AppCompatActivity() {
     private lateinit var btnAddNewContact: Button
 
 
-    private val contactViewModel: ContactViewModel by viewModels()
-
+    private val contactViewModel: ContactViewModel by viewModels{ContactViewModelFactory(initDb())}
+    private fun initDb(): ContactRepository {
+        val db = AppDatabase.getDatabase(this)
+        return ContactRepository(db.getContactDao())
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_contact)
