@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.example.contactsapp.R
 import com.example.contactsapp.databinding.ActivityAddContactBinding
 import com.example.contactsapp.viewmodel.ContactViewModel
 
@@ -21,15 +24,13 @@ class AddContactActivity : AppCompatActivity() {
     private lateinit var btnAddNewContact: Button
 
 
-    private lateinit var contactViewModel: ContactViewModel
-
+    private val contactViewModel: ContactViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAddContactBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_add_contact)
 
-        contactViewModel = ViewModelProvider(this).get(ContactViewModel::class.java)
+//        contactViewModel = ViewModelProvider(this).get(ContactViewModel::class.java)
         binding.viewModel = contactViewModel
 
         toolbar = binding.toolbar2

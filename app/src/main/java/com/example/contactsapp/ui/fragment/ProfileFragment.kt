@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.contactsapp.adapter.ProfileListAdapter
 import com.example.contactsapp.database.Profile
 import com.example.contactsapp.databinding.FragmentProfileBinding
+import com.example.contactsapp.ui.activity.AddProfileActivity
 
 class ProfileFragment : Fragment() {
 
@@ -50,23 +51,7 @@ class ProfileFragment : Fragment() {
 
         //add profile button click
         ibAddNewProfile.setOnClickListener {
-
-            val fragmentManager = childFragmentManager // Use childFragmentManager
-            val fragmentTransaction = fragmentManager.beginTransaction()
-            val fragment2 = AddProfileFragment() // Replace with the actual class of Fragment2
-
-//            fragmentTransaction.replace(R.id.fragmentContainerView, fragment2)
-//            fragmentTransaction.addToBackStack(null) // Optional: Add to back stack for back navigation
-//            fragmentTransaction.commit()
-
-//            val navController = findNavController()
-//
-//            navController.popBackStack()
-//
-//            navController.navigate(R.id.action_profileFragment_to_addProfileFragment)
-
-
-            startActivity(Intent(requireContext(), AddProfileFragment::class.java))
+            startActivity(Intent(requireContext(), AddProfileActivity::class.java))
         }
 
         return binding.root

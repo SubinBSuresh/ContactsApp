@@ -1,43 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.AddProfileActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/iv_addNewProfileImage"
-        android:layout_width="125sp"
-        android:layout_height="125sp"
-        android:layout_marginTop="164dp"
-        android:background="@drawable/avatar_round_shape"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
+<variable
+    name="viewModel"
+    type="com.example.contactsapp.viewmodel.ProfileViewModel" />
+    </data>
 
-    <EditText
-        android:id="@+id/et_addNewProfileName"
-        android:layout_width="273dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="92dp"
-        android:background="@drawable/box_border"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Enter name"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_addNewProfileImage" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.AddProfileActivity">
 
-    <Button
-        android:id="@+id/btn_addNewProfile"
-        android:layout_width="168sp"
-        android:layout_height="56sp"
-        android:layout_marginTop="92dp"
-        android:background="@drawable/box_border"
-        android:text="SUBMIT"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_addNewProfileName" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/iv_addNewProfileImage"
+            android:layout_width="125sp"
+            android:layout_height="125sp"
+            android:layout_marginTop="164dp"
+            android:background="@drawable/avatar_round_shape"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_addNewProfileName"
+            android:layout_width="273dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="92dp"
+            android:background="@drawable/box_border"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Enter name"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_addNewProfileImage" />
+
+        <Button
+            android:id="@+id/btn_addNewProfile"
+            android:layout_width="168sp"
+            android:layout_height="56sp"
+            android:layout_marginTop="92dp"
+            android:background="@drawable/box_border"
+            android:text="SUBMIT"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_addNewProfileName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

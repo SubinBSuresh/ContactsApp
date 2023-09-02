@@ -4,18 +4,18 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.contactsapp.database.AppDatabase
 import com.example.contactsapp.database.Contact
 import com.example.contactsapp.database.dao.ContactDao
 import com.example.contactsapp.ui.activity.MainActivity
 
-class ContactViewModel(private val application: Application) : AndroidViewModel(application) {
+class ContactViewModel(private val application: Application) : ViewModel() {
 
     val contactName = MutableLiveData<String>()
     val contactNumber = MutableLiveData<String>()
     val contactEmail = MutableLiveData<String>()
     private lateinit var contactDao: ContactDao
-
 
     init {
 

@@ -31,11 +31,9 @@ class HomeFragment : Fragment() {
         viewpager = binding.vpMainViewPager
         tabLayout = binding.tlMainLayout
 
+        // passing fragments to the adapter
         val fragments = listOf<Fragment>(ProfileFragment(), ContactsFragment(), FavoritesFragment())
-        val titles = listOf<String>("Profile", "Contact", "Favorites")
-
         adapter = FragmentAdapter(this, fragments)
-
         viewpager.adapter = adapter
 
 

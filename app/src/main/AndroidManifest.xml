@@ -19,7 +19,7 @@
             android:name=".ui.activity.ViewContactActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.fragment.AddProfileFragment"
+            android:name=".ui.activity.AddProfileActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activity.AddContactActivity"
