@@ -12,13 +12,13 @@ class ContactRepository(private val contactDao: ContactDao) {
 
     suspend fun updateContact(contact: Contact) = contactDao.updateContact(contact)
 
-    suspend fun fetchContacts(): LiveData<ArrayList<Contact>> = contactDao.fetchContacts()
-
-    suspend fun deleteContactById(id: Long) = contactDao.deleteContactById(id)
-
-    suspend fun fetchContactsBySearch(name: String, number: String): LiveData<ArrayList<Contact>> =
-        contactDao.fetchContactsBySearch(name, number)
-
-    suspend fun changeFavoriteStatus(id: Long, favoriteStatus: Boolean) =
-        contactDao.changeFavoriteStatus(id, favoriteStatus)
+//    suspend fun fetchContacts(): LiveData<ArrayList<Contact>> = contactDao.fetchContacts()
+//
+//    suspend fun deleteContactById(id: Long) = contactDao.deleteContactById(id)
+//
+//    suspend fun fetchContactsBySearch(name: String, number: String): LiveData<ArrayList<Contact>> =
+//        contactDao.fetchContactsBySearch(name, number)
+//
+//    suspend fun changeFavoriteStatus(id: Long, favoriteStatus: Boolean) =
+//        contactDao.changeFavoriteStatus(id, favoriteStatus)
 }
