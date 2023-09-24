@@ -4,22 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-<variable
-    name="viewModel"
-    type="com.example.contactsapp.viewmodel.ProfileViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.example.contactsapp.viewmodel.ProfileViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activity.AddProfileActivity">
+        android:background="@color/dark_blue"
+        tools:context=".ui.activity.ProfileActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar3"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Profile"
+            app:titleTextColor="@color/accent_green" />
 
         <ImageView
             android:id="@+id/iv_addNewProfileImage"
-            android:layout_width="125sp"
-            android:layout_height="125sp"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
             android:layout_marginTop="164dp"
             android:background="@drawable/avatar_round_shape"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,11 +43,14 @@
             android:layout_width="273dp"
             android:layout_height="45dp"
             android:layout_marginTop="92dp"
-            android:background="@drawable/box_border"
+            android:background="@drawable/searchbar_rectangle_shape"
             android:ems="10"
             android:gravity="center"
             android:hint="Enter name"
             android:inputType="text"
+            android:text="@={viewModel.newProfileName}"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_addNewProfileImage" />
@@ -43,8 +60,11 @@
             android:layout_width="168sp"
             android:layout_height="56sp"
             android:layout_marginTop="92dp"
-            android:background="@drawable/box_border"
+            android:backgroundTint="@color/accent_green"
+            android:fontFamily="@font/robot_bold"
             android:text="SUBMIT"
+            android:textColor="@color/dark_blue"
+            app:cornerRadius="5sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_addNewProfileName" />

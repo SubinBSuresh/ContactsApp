@@ -12,15 +12,9 @@ import com.example.contactsapp.R
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
 
-    private lateinit var tvSplashText: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        tvSplashText = findViewById(R.id.tvSplashText)
-
-
-        tvSplashText.text = "THIS IS A SPLASH"
-
 
         //3 second delay
         val handler = Handler(Looper.getMainLooper())

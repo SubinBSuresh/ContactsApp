@@ -9,57 +9,74 @@
             type="com.example.contactsapp.viewmodel.ContactViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10sp">
+        android:layout_margin="10sp"
+        android:background="@drawable/contact_background_shape"
+        app:cardBackgroundColor="@color/dark_blue_2"
+        app:cardCornerRadius="10sp">
 
-        <ImageView
-            android:id="@+id/cf_iv_contactImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="146dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cf_iv_favoriteImage"
-            app:layout_constraintStart_toEndOf="@id/cf_iv_contactImage"
-            app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/cf_iv_contactImage"
+                android:layout_width="80sp"
+                android:layout_height="80sp"
+                android:layout_marginStart="5sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/avatar_round_shape"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/cf_tv_contactName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Name" />
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20sp"
+                android:orientation="vertical"
+                android:padding="5sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cf_iv_contactImage"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/cf_tv_contactNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Number" />
+                <TextView
+                    android:id="@+id/cf_tv_contactName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6sp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Name"
 
-        </LinearLayout>
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
 
-        <ImageView
-            android:id="@+id/cf_iv_favoriteImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_favorite_24" />
+                <TextView
+                    android:id="@+id/cf_tv_contactNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Number"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/cf_iv_favoriteImage"
+                android:layout_width="35sp"
+                android:layout_height="35sp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_favorite_24" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

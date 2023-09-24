@@ -1,13 +1,15 @@
 package com.example.contactsapp.database.dao
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.contactsapp.database.Profile
+import com.example.contactsapp.database.entities.Profile
+import kotlinx.coroutines.flow.Flow
 
 
 @Dao
@@ -20,12 +22,18 @@ interface ProfileDao {
     suspend fun deleteProfile(profile: Profile)
 
     @Update
-    suspend fun updateContact(profile: Profile)
+    suspend fun updateProfile(profile: Profile)
 
-//    @Query("SELECT * FROM profiles ORDER BY id ASC")
-//    suspend fun fetchProfiles():LiveData<ArrayList<Profile>>
-//
-//
-//    @Query("DELETE FROM profiles WHERE id = :id")
-//    suspend fun deleteProfileById(id:Long)
+
+    @Query("SELECT * FROM profile ORDER BY id ASC")
+    fun fetchProfiles(): LiveData<List<Profile>>
+
+
+    @Query("DELETE FROM profile WHERE id = :id")
+    suspend fun deleteProfileById(id: Long)
+
+    @Query("SELECT * FROM profile WHERE id = :id")
+    suspend fun fetProfileById(id:Long): Profile
+
+
 }

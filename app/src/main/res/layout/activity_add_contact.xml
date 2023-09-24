@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.contactsapp.viewmodel.ContactViewModel" />
@@ -12,7 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activity.AddContactActivity">
+        android:background="@color/dark_blue"
+        tools:context=".ui.activity.ContactActivity">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar2"
@@ -22,13 +24,15 @@
             android:theme="?attr/actionBarTheme"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="Add Contact" />
+            app:title="Contact" />
 
         <ImageView
             android:id="@+id/iv_addNewContactImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="101dp"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:layout_marginTop="60sp"
+            android:background="@drawable/avatar_round_shape"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
@@ -37,57 +41,76 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:text="Click to add image"
+            android:textColor="#79FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_addNewContactImage"
-            android:text="Click to add image" />
+            app:layout_constraintTop_toBottomOf="@id/iv_addNewContactImage" />
+
+        <ImageView
+            android:id="@+id/iv_addNewContactFavorite"
+            android:layout_width="35sp"
+            android:layout_height="35sp"
+            android:layout_marginTop="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:srcCompat="@drawable/baseline_unfavorite_border_24" />
 
         <LinearLayout
             android:id="@+id/ll_addContactDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="50sp"
             android:layout_marginEnd="48dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView4">
+            app:layout_constraintTop_toBottomOf="@id/iv_addNewContactFavorite">
 
             <EditText
                 android:id="@+id/et_AddNewContactName"
-                android:text="@={viewModel.contactName}"
                 android:layout_width="match_parent"
-                android:layout_height="40sp"
+                android:layout_height="60sp"
                 android:layout_marginBottom="15sp"
-                android:background="@drawable/box_border"
+                android:background="@drawable/searchbar_rectangle_shape"
+                android:fontFamily="@font/roboto_regular"
                 android:gravity="center"
-                android:hint="Enter Name" />
+                android:hint="Enter Name"
+                android:text="@={viewModel.newContactName}"
+                android:textColor="@color/white"
+                android:textColorHighlight="@color/white" />
 
             <EditText
                 android:id="@+id/et_addNewContactNumber"
-                android:text="@={viewModel.contactNumber}"
                 android:layout_width="match_parent"
-                android:layout_height="40sp"
+                android:layout_height="60sp"
                 android:layout_marginBottom="15sp"
-                android:background="@drawable/box_border"
+                android:background="@drawable/searchbar_rectangle_shape"
                 android:ems="10"
+                android:fontFamily="@font/roboto_regular"
                 android:gravity="center"
                 android:hint="Enter phone number"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:text="@={viewModel.newContactNumber}"
+                android:textColor="@color/white" />
 
             <EditText
                 android:id="@+id/et_addNewContactEmail"
-                android:text="@={viewModel.contactEmail}"
-
                 android:layout_width="match_parent"
-                android:layout_height="40sp"
+
+                android:layout_height="60sp"
                 android:layout_marginBottom="15sp"
-                android:background="@drawable/box_border"
+                android:background="@drawable/searchbar_rectangle_shape"
                 android:ems="10"
+                android:fontFamily="@font/roboto_regular"
                 android:gravity="center"
                 android:hint="Enter email address"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:text="@={viewModel.newContactEmail}"
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <Button
@@ -95,9 +118,11 @@
             android:layout_width="168sp"
             android:layout_height="56sp"
             android:layout_marginTop="64dp"
-            android:background="@drawable/box_border"
+            android:backgroundTint="@color/accent_green"
+            android:fontFamily="@font/robot_bold"
             android:text="Save"
-            app:cornerRadius="15sp"
+            android:textColor="@color/dark_blue"
+            app:cornerRadius="5sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ll_addContactDetails" />

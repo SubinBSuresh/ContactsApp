@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="viewMode"
-            type="com.example.contactsapp.viewmodel.FavoriteViewModel" />
+            name="viewModel"
+            type="com.example.contactsapp.viewmodel.ContactViewModel" />
 
     </data>
 
@@ -16,15 +16,26 @@
         android:layout_height="match_parent"
         tools:context=".ui.fragment.FavoritesFragment">
 
+        <TextView
+            android:id="@+id/tv_ZeroFavoritesText"
+            android:layout_width="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_favoritesList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:foregroundGravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:itemCount="12"
+            tools:itemCount="2"
             tools:layoutManager="GridLayoutManager"
             tools:spanCount="5" />
     </androidx.constraintlayout.widget.ConstraintLayout>

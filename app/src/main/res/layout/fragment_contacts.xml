@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.contactsapp.viewmodel.ContactViewModel" />
@@ -16,15 +17,30 @@
         android:layout_height="match_parent"
         tools:context=".ui.fragment.ContactsFragment">
 
+        <TextView
+            android:id="@+id/tv_ZeroContacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:text="TextView"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <EditText
             android:id="@+id/et_searchContacts"
             android:layout_width="match_parent"
             android:layout_height="50sp"
             android:layout_margin="15sp"
+            android:background="@drawable/searchbar_rectangle_shape"
             android:ems="10"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:hint="Search contact"
             android:inputType="text"
+            android:textColorHighlight="@color/highlight_green"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,10 +49,11 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20sp"
+            android:layout_margin="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_searchContacts">
+            app:layout_constraintTop_toBottomOf="@id/et_searchContacts"
+            tools:listitem="@layout/recycler_view_item">
 
         </androidx.recyclerview.widget.RecyclerView>
 
@@ -45,8 +62,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5sp"
+            android:background="@color/accent_green"
             android:clickable="true"
             android:src="@android:drawable/ic_input_add"
+            app:backgroundTint="@color/accent_green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

@@ -1,24 +1,33 @@
 package com.example.contactsapp.database.repository
 
 import androidx.lifecycle.LiveData
-import com.example.contactsapp.database.Contact
 import com.example.contactsapp.database.dao.ContactDao
+import com.example.contactsapp.database.entities.Contact
 
 class ContactRepository(private val contactDao: ContactDao) {
 
-    fun insertContact(contact: Contact) = contactDao.insertContact(contact)
+    suspend fun insertContact(contact: Contact) = contactDao.insertContact(contact)
 
     suspend fun deleteContact(contact: Contact) = contactDao.deleteContact(contact)
 
     suspend fun updateContact(contact: Contact) = contactDao.updateContact(contact)
 
-//    suspend fun fetchContacts(): LiveData<ArrayList<Contact>> = contactDao.fetchContacts()
-//
+    fun fetchContactsByCurrentProfileId(profileId: Long): LiveData<List<Contact>> =
+        contactDao.fetchContactsByCurrentProfileId(profileId)
+
+    fun getFavoriteContacts(profileId: Long): LiveData<List<Contact>> =
+        contactDao.getFavoriteContacts(profileId)
+
+    fun fetchContactDetailsById(contactId: Long, profileId: Long): LiveData<Contact> =
+        contactDao.fetchContactDetailsById(contactId, profileId)
+    //
 //    suspend fun deleteContactById(id: Long) = contactDao.deleteContactById(id)
 //
-//    suspend fun fetchContactsBySearch(name: String, number: String): LiveData<ArrayList<Contact>> =
-//        contactDao.fetchContactsBySearch(name, number)
+    fun fetchContactsBySearch(name: String, number: String): LiveData<List<Contact>> =
+        contactDao.fetchContactsBySearch(name, number)
 //
 //    suspend fun changeFavoriteStatus(id: Long, favoriteStatus: Boolean) =
 //        contactDao.changeFavoriteStatus(id, favoriteStatus)
+
+    suspend fun fetchContactToEdit(contactId:Long, profileId:Long): Contact = contactDao.fetchContactToEdit(contactId,profileId)
 }

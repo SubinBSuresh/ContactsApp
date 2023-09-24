@@ -14,75 +14,86 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/dark_blue"
         tools:context=".ui.activity.ViewContactActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Contact"
+            app:titleTextColor="@color/highlight_green" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="150sp"
             android:layout_height="150sp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="60sp"
             android:background="@drawable/avatar_round_shape"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/ll_viewContactDetails"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:orientation="horizontal"
+            android:layout_marginTop="80sp"
+            android:orientation="vertical"
+            android:padding="10sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageView">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="60sp"
                 android:layout_margin="15sp"
-                android:orientation="vertical">
+                android:background="@drawable/searchbar_rectangle_shape"
+                android:padding="15sp"
+                android:weightSum="100">
 
                 <TextView
                     android:id="@+id/tv_viewContactNameText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Name: "
+                    android:layout_weight="35"
+                    android:text="Name"
                     android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/tv_viewContactNumberText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Number: "
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/tv_viewContactEmailText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Email: "
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="15sp"
-                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tv_viewContactName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:layout_weight="65"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="start"
+                    android:text="@={viewModel.contactDetailsName}"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/tv_viewContactNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+            </LinearLayout>
 
-                    android:text="TextView"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:layout_margin="15sp"
+                android:background="@drawable/searchbar_rectangle_shape"
+                android:orientation="horizontal"
+                android:padding="15sp"
+                android:weightSum="100">
+
+                <TextView
+                    android:id="@+id/tv_viewContactEmailText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Email"
                     android:textSize="20sp" />
 
                 <TextView
@@ -90,8 +101,42 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:text="TextView"
+                    android:layout_weight="65"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="start"
+                    android:text="@={viewModel.contactDetailsEmail}"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:layout_margin="15sp"
+                android:background="@drawable/searchbar_rectangle_shape"
+                android:padding="15sp"
+                android:weightSum="100">
+
+                <TextView
+                    android:id="@+id/tv_viewContactNumberText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="Number"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_viewContactNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="65"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="start|left"
+                    android:text="@={viewModel.contactDetailsNumber}"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
             </LinearLayout>
 
         </LinearLayout>
@@ -112,8 +157,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20sp"
                 android:layout_marginRight="20sp"
-                android:background="@drawable/box_border"
-                android:text="EDIT" />
+                android:backgroundTint="@color/accent_green"
+                android:fontFamily="@font/robot_bold"
+                android:text="EDIT"
+                android:textColor="@color/dark_blue"
+                app:cornerRadius="5sp" />
 
             <Button
                 android:id="@+id/btn_viewContact_deleteContact"
@@ -121,8 +169,11 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20sp"
                 android:layout_marginRight="20sp"
-                android:background="@drawable/box_border"
-                android:text="DELETE" />
+                android:backgroundTint="@color/accent_green"
+                android:fontFamily="@font/robot_bold"
+                android:text="DELETE"
+                android:textColor="@color/dark_blue"
+                app:cornerRadius="5sp" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

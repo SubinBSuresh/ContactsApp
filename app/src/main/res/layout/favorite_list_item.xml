@@ -6,13 +6,16 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.contactsapp.viewmodel.FavoriteViewModel" />
+            type="com.example.contactsapp.viewmodel.ContactViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:background="@drawable/favorite_square_shape"
+        android:paddingTop="5sp">
 
         <LinearLayout
             android:id="@+id/ll_favoriteItems"
@@ -20,29 +23,34 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/iv_favoriteItem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:background="@drawable/avatar_round_shape"
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:id="@+id/tv_favoriteName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_margin="10sp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="TextView"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
         <ImageView
             android:id="@+id/iv_favoriteListFavorite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="35sp"
+            android:layout_height="35sp"
             app:layout_constraintStart_toEndOf="@id/ll_favoriteItems"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baseline_favorite_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
