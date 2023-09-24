@@ -4,14 +4,21 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.example.contactsapp.ContactsApp
 import com.example.contactsapp.R
+import com.example.contactsapp.database.AppDatabase
+import com.example.contactsapp.database.ContactViewModelFactory
+import com.example.contactsapp.database.dao.ContactDao
+import com.example.contactsapp.database.repository.ContactRepository
 import com.example.contactsapp.databinding.ActivityAddContactBinding
 import com.example.contactsapp.viewmodel.ContactViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class AddContactActivity : AppCompatActivity() {
 
@@ -23,17 +30,23 @@ class AddContactActivity : AppCompatActivity() {
     private lateinit var ivAddContactImage: ImageView
     private lateinit var btnAddNewContact: Button
 
-
-    private val contactViewModel: ContactViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_contact)
+        binding.lifecycleOwner = this
 
-//        contactViewModel = ViewModelProvider(this).get(ContactViewModel::class.java)
-        binding.viewModel = contactViewModel
+        val db = MainActivity.database
+        val contactDao = db.getContactDao()
+        val repository = ContactRepository(contactDao)
 
-        toolbar = binding.toolbar2
+        val contactViewModelFactory = ContactViewModelFactory(repository)
+
+
+        val contactViewModel = ViewModelProvider(this,contactViewModelFactory)[ContactViewModel(repository)::class.java]
+        binding.viewModel =contactViewModel
+
+
+            toolbar = binding.toolbar2
         etAddContactName = binding.etAddNewContactName
         etAddContactNumber = binding.etAddNewContactNumber
         etAddContactEmail = binding.etAddNewContactEmail
@@ -52,10 +65,13 @@ class AddContactActivity : AppCompatActivity() {
 
             //TODO: Add DB operations
 
-            contactViewModel.addContact()
+            CoroutineScope(Dispatchers.IO).launch {
+                contactViewModel.addContact()
+
+            }
 
 
-            finish()
+//            finish()
         }
     }
 }

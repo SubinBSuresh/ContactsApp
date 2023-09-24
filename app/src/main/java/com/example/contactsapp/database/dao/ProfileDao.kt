@@ -22,10 +22,10 @@ interface ProfileDao {
     @Update
     suspend fun updateContact(profile: Profile)
 
-    @Query("SELECT * FROM profiles ORDER BY id ASC")
-    suspend fun fetchProfiles():LiveData<ArrayList<Profile>>
-
-
-    @Query("DELETE FROM profiles WHERE id = :id")
-    suspend fun deleteProfileById(id:Long)
+//    @Query("SELECT * FROM profiles ORDER BY id ASC")
+//    suspend fun fetchProfiles():LiveData<ArrayList<Profile>>
+//
+//
+//    @Query("DELETE FROM profiles WHERE id = :id")
+//    suspend fun deleteProfileById(id:Long)
 }

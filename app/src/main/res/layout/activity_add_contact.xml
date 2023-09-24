@@ -56,7 +56,7 @@
 
             <EditText
                 android:id="@+id/et_AddNewContactName"
-                android:text="@={viewModel.contactNumber}"
+                android:text="@={viewModel.contactName}"
                 android:layout_width="match_parent"
                 android:layout_height="40sp"
                 android:layout_marginBottom="15sp"

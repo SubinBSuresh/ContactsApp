@@ -12,7 +12,7 @@ class ProfileRepository(private val profileDao: ProfileDao) {
 
     suspend fun updateContact(profile: Profile) = profileDao.updateContact(profile)
 
-    suspend fun fetchProfiles(): LiveData<ArrayList<Profile>> = profileDao.fetchProfiles()
-
-    suspend fun deleteProfileById(id: Long) = profileDao.deleteProfileById(id)
+//    suspend fun fetchProfiles(): LiveData<ArrayList<Profile>> = profileDao.fetchProfiles()
+//
+//    suspend fun deleteProfileById(id: Long) = profileDao.deleteProfileById(id)
 }

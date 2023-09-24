@@ -16,6 +16,7 @@ import com.example.contactsapp.adapter.ContactListAdapter
 import com.example.contactsapp.database.Contact
 import com.example.contactsapp.databinding.FragmentContactsBinding
 import com.example.contactsapp.ui.activity.AddContactActivity
+import com.example.contactsapp.ui.activity.MainActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ContactsFragment : Fragment() {
@@ -37,7 +38,7 @@ class ContactsFragment : Fragment() {
         val contactList: ArrayList<Contact> = ArrayList()
         contactList.add(Contact(0,1,"Subin","9876868424","dsfsfs","fsfsdfsfsd",isFavorite = false))
         contactList.add(Contact(1,2,"Lubin","9876868424","dsfsfs","fsfsdfsfsd",isFavorite = false))
-        val  contactListAdapter = ContactListAdapter(contactList,requireContext())
+        val  contactListAdapter = ContactListAdapter(MainActivity.contactList,requireContext())
         val linearLayoutManager: LayoutManager = LinearLayoutManager(requireContext())
 
         recyclerView.layoutManager = linearLayoutManager
